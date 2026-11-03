@@ -1,0 +1,1122 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio | Shoppings Ride</title>
+
+    <meta
+        name="description"
+        content="Recorrido temático por cuatro shoppings de CABA y GBA: horarios, accesos, mapa y planificación de la visita."
+    >
+
+    <!-- Favicon -->
+    <link rel="icon" href="fotos/logo.png">
+
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+    <!-- Configuración de colores y tipografías -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fondo: '#FAF6ED',
+                        beige: '#ECE9E0',
+                        btn: '#A38E7A',
+                        activo: '#CEBAA7',
+                        dorado: '#776005',
+                        tinta: '#1E1E1E'
+                    },
+                    fontFamily: {
+                        inder: ['Inder', 'sans-serif'],
+                        judson: ['Judson', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inder&family=Judson:wght@400;700&display=swap"
+    >
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Leaflet: estilos y JavaScript del mapa -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
+    >
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body class="bg-fondo text-tinta font-inder pt-36">
+
+    <!-- Enlace para saltar directamente al contenido -->
+    <a
+        href="#contenido"
+        class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-white focus:p-3"
+    >
+        Saltar al contenido
+    </a>
+
+
+ <header class="fixed top-0 left-0 w-full z-50 bg-beige border-b border-activo">
+
+        <div class="mx-auto max-w-6xl px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+
+            <!-- Logo -->
+            <a
+                href="index.html"
+                aria-label="Shoppings Ride, ir al inicio"
+            >
+                <img
+                    src="fotos/logo.png"
+                    alt="Logo de Shoppings Ride"
+                    class="h-14 w-auto rounded"
+                >
+            </a>
+
+            <!-- Botón del menú para dispositivos móviles -->
+            <button
+                id="menu-btn"
+                class="md:hidden rounded-full bg-btn px-4 py-2 text-white"
+                aria-expanded="false"
+                aria-controls="menu"
+            >
+                Menú
+            </button>
+
+            <!-- Navegación principal -->
+            <nav aria-label="Principal">
+
+                <ul
+                    id="menu"
+                    class="hidden md:flex flex-col md:flex-row flex-wrap gap-2 mt-2 md:mt-0"
+                >
+
+                    <li>
+                        <a
+                            href="index.html"
+                            class="block rounded-full px-4 py-2 text-white bg-activo !text-tinta font-bold"
+                            aria-current="page"
+                        >
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="mapa.html"
+                            class="block rounded-full px-4 py-2 text-white bg-btn hover:bg-activo hover:!text-tinta"
+                        >
+                            Mapa
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="alto-avellaneda.html"
+                            class="block rounded-full px-4 py-2 text-white bg-btn hover:bg-activo hover:!text-tinta"
+                        >
+                            Alto Avellaneda
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="boulevard-adrogue.html"
+                            class="block rounded-full px-4 py-2 text-white bg-btn hover:bg-activo hover:!text-tinta"
+                        >
+                            Boulevard Adrogué
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="unicenter.html"
+                            class="block rounded-full px-4 py-2 text-white bg-btn hover:bg-activo hover:!text-tinta"
+                        >
+                            Unicenter
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="shopping-caballito.html"
+                            class="block rounded-full px-4 py-2 text-white bg-btn hover:bg-activo hover:!text-tinta"
+                        >
+                            Shopping Caballito
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== CONTENIDO PRINCIPAL ==================== -->
+    <main id="contenido">
+
+
+        <!-- ==================== SECCIÓN 1: PRESENTACIÓN ==================== -->
+        <section class="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-2 items-center">
+
+            <!-- Texto de presentación -->
+            <div>
+
+                <p class="text-dorado font-bold">
+                    Recorrido temático · CABA y GBA
+                </p>
+
+                <h1 class="font-judson text-4xl md:text-5xl font-bold mt-2">
+                    Shoppings Ride
+                </h1>
+
+                <p class="mt-4 text-lg">
+                    Un recorrido por cuatro centros comerciales de Buenos Aires para planificar tu salida de compras, entretenimiento y gastronomía.
+                </p>
+
+                <!-- Botones de navegación -->
+                <div class="mt-6 flex flex-wrap gap-3">
+
+                    <a
+                        href="mapa.html"
+                        class="rounded-full bg-btn px-6 py-3 text-white hover:bg-dorado"
+                    >
+                        Ver el mapa
+                    </a>
+
+                    <a
+                        href="#reserva"
+                        class="rounded-full border-2 border-dorado px-6 py-3 text-dorado hover:bg-beige"
+                    >
+                        Armar mi visita
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Imagen principal -->
+            <img
+                src="fotos/portadashoppings.png"
+                alt="Fachada del shopping Unicenter"
+                class="rounded-2xl w-full object-cover max-h-80"
+            >
+
+        </section>
+
+
+        <!-- ==================== SECCIÓN 2: OBJETIVO Y PROPUESTA ==================== -->
+        <section class="bg-beige">
+
+            <div class="mx-auto max-w-6xl px-4 py-10 grid gap-6 md:grid-cols-3">
+
+                <!-- Objetivo -->
+                <div>
+
+                    <h2 class="font-judson text-2xl font-bold text-dorado">
+                        Objetivo
+                    </h2>
+
+                    <p class="mt-2">
+                        Brindar información sobre las propuestas, servicios y experiencias de cada shopping, con recomendaciones para visitarlos.
+                    </p>
+
+                </div>
+
+                <!-- Propuesta de valor -->
+                <div>
+
+                    <h2 class="font-judson text-2xl font-bold text-dorado">
+                        Propuesta de valor
+                    </h2>
+
+                    <p class="mt-2">
+                        Horarios, accesos, transporte y accesibilidad de cuatro shoppings reunidos en un solo lugar.
+                    </p>
+
+                </div>
+
+                <!-- Público objetivo -->
+                <div>
+
+                    <h2 class="font-judson text-2xl font-bold text-dorado">
+                        Para quién
+                    </h2>
+
+                    <p class="mt-2">
+                        Personas que quieren salir de compras, ir al cine o comer, y necesitan organizar la visita.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== SECCIÓN 3: LAS CUATRO PARADAS ==================== -->
+        <section class="mx-auto max-w-6xl px-4 py-12">
+
+            <h2 class="font-judson text-3xl font-bold">
+                Las cuatro paradas
+            </h2>
+
+            <p class="mt-1">
+                Orden sugerido: Alto Avellaneda → Boulevard Adrogué → Unicenter → Shopping Caballito.
+            </p>
+
+            <!-- Lista de shoppings -->
+            <ul class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+
+                <!-- Parada 1: Alto Avellaneda -->
+                <li>
+
+                    <a
+                        href="alto-avellaneda.html"
+                        class="block h-full rounded-2xl bg-white border border-activo overflow-hidden hover:shadow-lg focus:shadow-lg"
+                    >
+
+                        <img
+                            src="fotos/alto-exterior.png"
+                            alt="Frente del shopping Alto Avellaneda con estacionamiento al aire libre y cartel del cine"
+                            class="h-44 w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="p-4">
+
+                            <p class="text-dorado text-sm font-bold">
+                                Parada 1
+                            </p>
+
+                            <h3 class="font-judson text-xl font-bold">
+                                Alto Avellaneda
+                            </h3>
+
+                            <p class="text-sm mt-1">
+                                Avellaneda, Provincia de Buenos Aires
+                            </p>
+
+                            <p class="mt-2 text-sm underline">
+                                Ver Alto Avellaneda
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Parada 2: Boulevard Adrogué -->
+                <li>
+
+                    <a
+                        href="boulevard-adrogue.html"
+                        class="block h-full rounded-2xl bg-white border border-activo overflow-hidden hover:shadow-lg focus:shadow-lg"
+                    >
+
+                        <img
+                            src="fotos/boulevard-exterior.png"
+                            alt="Entrada del shopping Boulevard Adrogué rodeada de vegetación"
+                            class="h-44 w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="p-4">
+
+                            <p class="text-dorado text-sm font-bold">
+                                Parada 2
+                            </p>
+
+                            <h3 class="font-judson text-xl font-bold">
+                                Boulevard Adrogué
+                            </h3>
+
+                            <p class="text-sm mt-1">
+                                Adrogué, Provincia de Buenos Aires
+                            </p>
+
+                            <p class="mt-2 text-sm underline">
+                                Ver Boulevard Adrogué
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Parada 3: Unicenter -->
+                <li>
+
+                    <a
+                        href="unicenter.html"
+                        class="block h-full rounded-2xl bg-white border border-activo overflow-hidden hover:shadow-lg focus:shadow-lg"
+                    >
+
+                        <img
+                            src="fotos/unicenter-exterior.png"
+                            alt="Fachada del shopping Unicenter con su cartel y el estacionamiento"
+                            class="h-44 w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="p-4">
+
+                            <p class="text-dorado text-sm font-bold">
+                                Parada 3
+                            </p>
+
+                            <h3 class="font-judson text-xl font-bold">
+                                Unicenter
+                            </h3>
+
+                            <p class="text-sm mt-1">
+                                Martínez, Provincia de Buenos Aires
+                            </p>
+
+                            <p class="mt-2 text-sm underline">
+                                Ver Unicenter
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Parada 4: Shopping Caballito -->
+                <li>
+
+                    <a
+                        href="shopping-caballito.html"
+                        class="block h-full rounded-2xl bg-white border border-activo overflow-hidden hover:shadow-lg focus:shadow-lg"
+                    >
+
+                        <img
+                            src="fotos/caballito-exterior.png"
+                            alt="Frente del Shopping Caballito Center sobre la avenida, con un edificio alto detrás"
+                            class="h-44 w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="p-4">
+
+                            <p class="text-dorado text-sm font-bold">
+                                Parada 4
+                            </p>
+
+                            <h3 class="font-judson text-xl font-bold">
+                                Shopping Caballito
+                            </h3>
+
+                            <p class="text-sm mt-1">
+                                Caballito, Ciudad Autónoma de Buenos Aires
+                            </p>
+
+                            <p class="mt-2 text-sm underline">
+                                Ver Shopping Caballito
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ==================== SECCIÓN 4: MAPA GENERAL ==================== -->
+        <section class="mx-auto max-w-6xl px-4">
+
+            <h2 class="font-judson text-3xl font-bold">
+                Mapa general
+            </h2>
+
+            <!-- Contenedor del mapa interactivo -->
+            <div
+                id="mapa"
+                class="mt-4 h-80 rounded-2xl border border-activo"
+                role="region"
+                aria-label="Mapa interactivo con los cuatro shoppings"
+            ></div>
+
+            <p class="mt-2 text-sm">
+
+                <a
+                    class="underline text-dorado"
+                    href="mapa.html"
+                >
+                    Abrir mapa completo con el orden del recorrido
+                </a>
+
+            </p>
+
+        </section>
+
+
+        <!-- ==================== SECCIÓN 5: DESTACADOS ==================== -->
+        <section class="mx-auto max-w-6xl px-4 py-12">
+
+            <h2 class="font-judson text-3xl font-bold">
+                Destacados y recomendaciones
+            </h2>
+
+            <ul class="mt-4 grid gap-4 md:grid-cols-3">
+
+                <!-- Más accesible -->
+                <li class="rounded-2xl bg-white border border-activo p-5">
+
+                    <h3 class="font-bold text-dorado">
+                        Más accesible
+                    </h3>
+
+                    <p class="mt-1 text-sm">
+                        Shopping Caballito: llegás en subte línea A.
+                    </p>
+
+                </li>
+
+                <!-- Para ir en auto -->
+                <li class="rounded-2xl bg-white border border-activo p-5">
+
+                    <h3 class="font-bold text-dorado">
+                        Para ir en auto
+                    </h3>
+
+                    <p class="mt-1 text-sm">
+                        Unicenter: acceso directo desde la Panamericana y estacionamiento amplio.
+                    </p>
+
+                </li>
+
+                <!-- Tarde tranquila -->
+                <li class="rounded-2xl bg-white border border-activo p-5">
+
+                    <h3 class="font-bold text-dorado">
+                        Tarde tranquila
+                    </h3>
+
+                    <p class="mt-1 text-sm">
+                        Boulevard Adrogué: cafés, arte y gastronomía artesanal.
+                    </p>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+<!-- ==================== SECCIÓN 6: FORMULARIO DE RESERVA ==================== -->
+<section id="reserva" class="bg-beige">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+
+    <div class="text-center">
+      <p class="text-sm font-bold text-dorado">PLANIFICÁ TU RECORRIDO</p>
+      <h2 class="mt-2 font-judson text-3xl font-bold">
+        Armá tu visita
+      </h2>
+      <p class="mt-2 text-sm">
+        Elegí los shoppings, la cantidad de personas y los adicionales.
+        Podés consultar el total en pesos o dólares.
+      </p>
+      <p class="mt-1 text-sm font-bold">
+        Esta reserva es una simulación. No se realiza ningún pago real.
+      </p>
+    </div>
+
+    <form id="form-reserva"
+      class="mt-8 grid gap-5 md:grid-cols-2 rounded-2xl bg-white border border-activo p-6 md:p-8"
+      novalidate>
+
+      <!-- Nombre -->
+      <div>
+        <label for="r-nombre" class="font-bold">
+          Nombre y apellido
+        </label>
+        <input
+          type="text"
+          id="r-nombre"
+          name="nombre"
+          class="campo w-full mt-1"
+          placeholder="Ingresá tu nombre"
+          required
+        >
+        <p id="e-r-nombre" class="error" role="alert"></p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="r-email" class="font-bold">
+          Correo electrónico
+        </label>
+        <input
+          type="email"
+          id="r-email"
+          name="email"
+          class="campo w-full mt-1"
+          placeholder="nombre@correo.com"
+          required
+        >
+        <p id="e-r-email" class="error" role="alert"></p>
+      </div>
+
+      <!-- Fecha -->
+      <div>
+        <label for="r-fecha" class="font-bold">
+          Fecha de visita
+        </label>
+        <input
+          type="date"
+          id="r-fecha"
+          name="fecha"
+          class="campo w-full mt-1"
+          required
+        >
+        <p id="e-r-fecha" class="error" role="alert"></p>
+      </div>
+
+      <!-- Personas -->
+      <div>
+        <label for="r-personas" class="font-bold">
+          Cantidad de personas
+        </label>
+        <input
+          type="number"
+          id="r-personas"
+          name="personas"
+          class="campo w-full mt-1"
+          min="1"
+          max="10"
+          value="2"
+          required
+        >
+        <p id="e-r-personas" class="error" role="alert"></p>
+      </div>
+
+      <!-- Shoppings -->
+      <fieldset class="md:col-span-2 rounded-xl border border-activo p-4">
+        <legend class="px-2 font-bold">
+          ¿Qué shoppings querés visitar?
+        </legend>
+
+        <p class="text-sm">
+          Podés elegir uno o varios.
+        </p>
+
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+
+          <label class="flex items-center gap-3 rounded-lg bg-beige p-3">
+            <input
+              type="checkbox"
+              name="shoppings"
+              value="alto-avellaneda"
+            >
+            <span>Alto Avellaneda</span>
+          </label>
+
+          <label class="flex items-center gap-3 rounded-lg bg-beige p-3">
+            <input
+              type="checkbox"
+              name="shoppings"
+              value="boulevard-adrogue"
+            >
+            <span>Boulevard Adrogué</span>
+          </label>
+
+          <label class="flex items-center gap-3 rounded-lg bg-beige p-3">
+            <input
+              type="checkbox"
+              name="shoppings"
+              value="unicenter"
+            >
+            <span>Unicenter</span>
+          </label>
+
+          <label class="flex items-center gap-3 rounded-lg bg-beige p-3">
+            <input
+              type="checkbox"
+              name="shoppings"
+              value="shopping-caballito"
+            >
+            <span>Shopping Caballito</span>
+          </label>
+
+        </div>
+
+        <p id="e-r-shoppings" class="error mt-2" role="alert"></p>
+      </fieldset>
+
+      <!-- Adicionales -->
+      <fieldset class="md:col-span-2 rounded-xl border border-activo p-4">
+        <legend class="px-2 font-bold">
+          Elegí tus adicionales
+        </legend>
+
+        <p class="text-sm">
+          Los adicionales se suman al total de tu visita.
+        </p>
+
+        <div id="r-extras" class="mt-3 space-y-3">
+
+          <label class="flex items-center justify-between gap-3 rounded-lg bg-beige p-3">
+            <span class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                name="extra"
+                value="cine"
+              >
+              <span>Cine</span>
+            </span>
+            <span class="text-sm font-bold">$13.000 por persona</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 rounded-lg bg-beige p-3">
+            <span class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                name="extra"
+                value="merienda"
+              >
+              <span>Merienda</span>
+            </span>
+            <span class="text-sm font-bold">$15.000 por persona</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 rounded-lg bg-beige p-3">
+            <span class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                name="extra"
+                value="estacionamiento"
+              >
+              <span>Estacionamiento</span>
+            </span>
+            <span class="text-sm font-bold">$4.000 por visita</span>
+          </label>
+
+        </div>
+      </fieldset>
+
+      <!-- Moneda -->
+      <div class="md:col-span-2">
+        <label for="r-moneda" class="font-bold">
+          Mostrar precios en
+        </label>
+
+        <select
+          id="r-moneda"
+          name="moneda"
+          class="campo w-full mt-1"
+        >
+          <option value="ARS">Pesos argentinos (ARS)</option>
+          <option value="USD">Dólares estadounidenses (USD)</option>
+        </select>
+      </div>
+
+      <!-- Resumen -->
+      <div class="md:col-span-2 rounded-xl bg-beige p-5"
+        aria-live="polite">
+
+        <h3 class="font-judson text-xl font-bold text-dorado">
+          Resumen de tu selección
+        </h3>
+
+        <dl
+          id="r-resumen"
+          class="mt-3 grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 text-sm"
+        ></dl>
+
+        <p id="r-cambio" class="mt-4 text-xs"></p>
+      </div>
+
+      <!-- Confirmar y limpiar -->
+      <button
+        type="submit"
+        class="rounded-full bg-dorado px-5 py-3 font-bold text-white hover:opacity-90"
+      >
+        Confirmar solicitud
+      </button>
+
+      <button
+        type="reset"
+        class="rounded-full border border-activo px-5 py-3 font-bold hover:bg-beige"
+      >
+        Limpiar
+      </button>
+
+      <!-- Confirmación -->
+      <p
+        id="r-ok"
+        class="md:col-span-2 hidden rounded-xl border-2 border-dorado bg-beige p-4"
+        role="status"
+        tabindex="-1"
+      ></p>
+
+    </form>
+  </div>
+</section>
+
+</fieldset>
+
+        <!-- ==================== SECCIÓN 7: PREGUNTAS FRECUENTES ==================== -->
+        <section class="mx-auto max-w-4xl px-4 py-12">
+
+            <h2 class="font-judson text-3xl font-bold">
+                Preguntas frecuentes
+            </h2>
+
+            <div
+                id="faq"
+                class="mt-4 space-y-2"
+            ></div>
+
+        </section>
+
+
+        <!-- ==================== SECCIÓN 8: CONTACTO ==================== -->
+        <section class="bg-beige">
+
+            <div
+                class="mx-auto max-w-4xl px-4 py-12"
+                id="contacto"
+            >
+
+                <h2 class="font-judson text-3xl font-bold">
+                    Contacto
+                </h2>
+
+                <p class="mt-1 text-sm">
+                    Este formulario es una <strong>simulación</strong>: valida los datos y confirma el envío, pero no se envía ningún mensaje real.
+                </p>
+
+
+                <!-- Formulario de contacto -->
+                <form
+                    id="form-contacto"
+                    class="mt-6 grid gap-4 rounded-2xl bg-white border border-activo p-6"
+                    novalidate
+                >
+
+                    <!-- Nombre -->
+                    <div>
+
+                        <label for="c-nombre" class="font-bold">
+                            Nombre
+                        </label>
+
+                        <input
+                            id="c-nombre"
+                            name="nombre"
+                            class="campo"
+                            autocomplete="name"
+                            aria-describedby="e-c-nombre"
+                        >
+
+                        <p
+                            id="e-c-nombre"
+                            class="error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+                    <!-- Correo electrónico -->
+                    <div>
+
+                        <label for="c-email" class="font-bold">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            id="c-email"
+                            name="email"
+                            type="email"
+                            class="campo"
+                            autocomplete="email"
+                            aria-describedby="e-c-email"
+                        >
+
+                        <p
+                            id="e-c-email"
+                            class="error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+                    <!-- Motivo de consulta -->
+                    <div>
+
+                        <label for="c-motivo" class="font-bold">
+                            Motivo de la consulta
+                        </label>
+
+                        <select
+                            id="c-motivo"
+                            name="motivo"
+                            class="campo"
+                            aria-describedby="e-c-motivo"
+                        >
+
+                            <option value="">
+                                Elegí un motivo
+                            </option>
+
+                            <option>Horarios y accesos</option>
+                            <option>Promociones</option>
+                            <option>Accesibilidad</option>
+                            <option>Sugerencias para el sitio</option>
+                            <option>Otro</option>
+
+                        </select>
+
+                        <p
+                            id="e-c-motivo"
+                            class="error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+                    <!-- Mensaje -->
+                    <div>
+
+                        <label for="c-mensaje" class="font-bold">
+                            Mensaje (mínimo 10 caracteres)
+                        </label>
+
+                        <textarea
+                            id="c-mensaje"
+                            name="mensaje"
+                            rows="4"
+                            class="campo"
+                            aria-describedby="e-c-mensaje"
+                        ></textarea>
+
+                        <p
+                            id="e-c-mensaje"
+                            class="error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+                    <!-- Botón de envío -->
+                    <div>
+
+                        <button
+                            type="submit"
+                            class="rounded-full bg-dorado px-6 py-3 text-white"
+                        >
+                            Enviar consulta
+                        </button>
+
+                    </div>
+
+
+                    <!-- Mensaje de confirmación -->
+                    <p
+                        id="c-ok"
+                        class="hidden rounded-xl border-2 border-dorado bg-white p-4"
+                        role="status"
+                        tabindex="-1"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-tinta text-white mt-16">
+
+        <div class="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-3">
+
+
+            <!-- Información del proyecto -->
+            <div>
+
+                <h2 class="text-dorado font-judson text-xl font-bold">
+                    Shoppings Ride
+                </h2>
+
+                <p class="mt-2 text-sm">
+                    Recorrido temático por shoppings de CABA y GBA. Proyecto académico de Diseño y Desarrollo Web, UADE 2026.
+                </p>
+
+            </div>
+
+
+            <!-- Enlaces al recorrido -->
+            <div>
+
+                <h2 class="text-dorado font-judson text-xl font-bold">
+                    Recorrido
+                </h2>
+
+                <ul class="mt-2 space-y-1 text-sm">
+
+                    <li>
+                        <a class="underline" href="alto-avellaneda.html">
+                            Alto Avellaneda
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="underline" href="boulevard-adrogue.html">
+                            Boulevard Adrogué
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="underline" href="unicenter.html">
+                            Unicenter
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="underline" href="shopping-caballito.html">
+                            Shopping Caballito
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Integrantes del grupo -->
+            <div>
+
+                <h2 class="text-dorado font-judson text-xl font-bold">
+                    Grupo 4
+                </h2>
+
+                <p class="mt-2 text-sm">
+                    Esperidioni Valentina, Marthi Julieta, Turus Constanza y Scarpitta Tiziano. Profesora: Patricia Litovicius.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Aviso legal -->
+        <p class="border-t border-white/20 py-4 text-center text-xs">
+            Sitio con fines educativos. Precios, reservas y envíos son simulaciones.
+        </p>
+
+    </footer>
+
+
+    <!-- ==================== CHATBOT ==================== -->
+
+    <!-- Botón para abrir el asistente -->
+    <button
+        id="chat-btn"
+        class="fixed bottom-4 right-4 z-40 rounded-full bg-dorado px-5 py-3 text-white shadow-lg"
+        aria-expanded="false"
+        aria-controls="chat"
+    >
+        Preguntas frecuentes
+    </button>
+
+
+    <!-- Ventana del asistente -->
+    <section
+        id="chat"
+        class="hidden fixed bottom-20 right-4 z-40 w-[calc(100%-2rem)] max-w-sm rounded-2xl bg-white shadow-2xl border border-activo"
+        aria-label="Asistente de preguntas frecuentes"
+    >
+
+        <!-- Encabezado del chat -->
+        <div class="bg-beige rounded-t-2xl px-4 py-3 font-bold text-dorado">
+            Asistente Shoppings Ride
+        </div>
+
+
+        <!-- Mensajes -->
+        <div
+            id="chat-log"
+            class="h-64 overflow-y-auto p-3 space-y-2 text-sm"
+            role="log"
+            aria-live="polite"
+        ></div>
+
+
+        <!-- Preguntas sugeridas -->
+        <div
+            id="chat-sug"
+            class="flex flex-wrap gap-1 px-3 pb-2"
+        ></div>
+
+
+        <!-- Campo de escritura y botón -->
+        <div class="flex gap-2 border-t border-activo p-3">
+
+            <label for="chat-in" class="sr-only">
+                Escribí tu pregunta
+            </label>
+
+            <input
+                id="chat-in"
+                class="flex-1 rounded-full border border-btn px-3 py-2 text-sm"
+                placeholder="Ej: ¿Hasta qué hora abre?"
+                autocomplete="off"
+            >
+
+            <button
+                id="chat-send"
+                class="rounded-full bg-btn px-4 py-2 text-white text-sm"
+            >
+                Enviar
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
